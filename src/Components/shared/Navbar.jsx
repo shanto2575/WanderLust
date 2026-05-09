@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import {Person} from '@gravity-ui/icons';
 import NavLink from './NavLink';
 
 const Navbar = () => {
@@ -11,6 +10,7 @@ const Navbar = () => {
                 <li><NavLink href={'/destinations'}>Destinations</NavLink></li>
                 <li><NavLink href={'/my-bookings'}>My Bookings</NavLink></li>
                 <li><NavLink href={'/admin'}>Admin</NavLink></li>
+                <li><NavLink href={'/add-destination'}>Add Destination</NavLink></li>
             </ul>
             <Link href={'/'}>
                 <Image
