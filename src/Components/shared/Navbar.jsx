@@ -9,7 +9,6 @@ const Navbar = () => {
                 <li><NavLink href={'/'}>Home</NavLink></li>
                 <li><NavLink href={'/destination'}>Destinations</NavLink></li>
                 <li><NavLink href={'/my-bookings'}>My Bookings</NavLink></li>
-                <li><NavLink href={'/admin'}>Admin</NavLink></li>
                 <li><NavLink href={'/add-destination'}>Add Destination</NavLink></li>
             </ul>
             <Link href={'/'}>
