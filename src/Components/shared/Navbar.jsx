@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className='flex justify-between items-center p-5'>
             <ul className='flex gap-5'>
                 <li><NavLink href={'/'}>Home</NavLink></li>
-                <li><NavLink href={'/destinations'}>Destinations</NavLink></li>
+                <li><NavLink href={'/destination'}>Destinations</NavLink></li>
                 <li><NavLink href={'/my-bookings'}>My Bookings</NavLink></li>
                 <li><NavLink href={'/admin'}>Admin</NavLink></li>
                 <li><NavLink href={'/add-destination'}>Add Destination</NavLink></li>
