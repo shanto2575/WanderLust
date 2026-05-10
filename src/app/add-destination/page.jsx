@@ -1,5 +1,6 @@
 'use client'
 import { Button, Card, FieldError, Input, Label, ListBox, TextArea, TextField, Select } from '@heroui/react'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 const AddDestinationPage = () => {
@@ -16,8 +17,8 @@ const AddDestinationPage = () => {
             body: JSON.stringify(destination)
         })
         const data = await res.json()
-        console.log(data)
-        // if(data.)
+        // console.log(data)
+        redirect('/destination')
 
     }
     return (

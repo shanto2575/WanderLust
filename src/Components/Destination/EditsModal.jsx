@@ -3,6 +3,7 @@
 import { Envelope } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField, Select } from "@heroui/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 
 export function EditsModal({ destination }) {
@@ -21,12 +22,12 @@ export function EditsModal({ destination }) {
             body: JSON.stringify(destination)
         })
         const data = await res.json()
-        console.log(data,'data')
+        redirect('/destination')
+        // console.log(data,'data')
     }
     return (
         <Modal>
             <div className='flex justify-between items-center my-3'>
-                <Link href={'/destination'} className='flex gap-1 items-center'><FaArrowLeft />Back To Destination</Link>
                 <Button variant='outline' className={'rounded border-pink-500'}>Edits</Button>
             </div>
             <Modal.Backdrop>

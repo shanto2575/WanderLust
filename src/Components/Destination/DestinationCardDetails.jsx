@@ -7,13 +7,20 @@ import { FiMapPin } from 'react-icons/fi';
 import { GiArrowWings } from 'react-icons/gi';
 import { SlCalender } from 'react-icons/sl';
 import { EditsModal } from './EditsModal';
+import { DeleteAlert } from './DeleteAlert';
 
 const DestinationCardDetails = ({ destination }) => {
     // console.log(destination)
     const { imageUrl, destinationName, country, price, duration } = destination;
     return (
         <div className='w-10/12 mx-auto my-4'>
-            <EditsModal destination={destination}/>
+            <div className='flex justify-between items-center gap-5'>
+                <Link href={'/destination'} className='flex gap-1 items-center'><FaArrowLeft />Back To Destination</Link>
+                <div className='flex items-center justify-between gap-5'>
+                    <EditsModal destination={destination} />
+                    <DeleteAlert destination={destination}/>
+                </div>
+            </div>
             <div className='relative w-full h-130 object-contain  rounded-2xl'>
                 <Image
                     src={imageUrl}
