@@ -1,5 +1,6 @@
 import { Button } from '@heroui/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { FiMapPin } from 'react-icons/fi'
 import { GiArrowWings } from 'react-icons/gi'
@@ -7,7 +8,7 @@ import { SlCalender } from 'react-icons/sl'
 
 const DestinationCard = ({ destination }) => {
     // console.log(destination)
-    const { imageUrl, destinationName, country, price, duration } = destination
+    const {_id, imageUrl, destinationName, country, price, duration } = destination
 
     return (
         <div>
@@ -31,7 +32,9 @@ const DestinationCard = ({ destination }) => {
                         <SlCalender />
                         <p className='text-xl font-semibold text-gray-400'>{duration}</p>
                     </div>
-                    <button className={'text-2xl bg-white text-blue-400 font-semibold border-b-2 border-pink-500 flex items-center gap-2'}>BOOK NOW <GiArrowWings /> </button>
+                    <Link href={`/destination/${_id}`}>
+                        <button className={'text-2xl bg-white text-blue-400 font-semibold border-b-2 border-pink-500 flex items-center gap-2'}>BOOK NOW <GiArrowWings /> </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import DestinationCard from '@/Components/DestinationCard'
+import DestinationCard from '@/Components/Destination/DestinationCard'
 import { getDestination } from '@/lib/api/data'
 import React from 'react'
 
