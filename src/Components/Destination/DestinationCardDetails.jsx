@@ -18,7 +18,7 @@ const DestinationCardDetails = ({ destination }) => {
                 <Link href={'/destination'} className='flex gap-1 items-center'><FaArrowLeft />Back To Destination</Link>
                 <div className='flex items-center justify-between gap-5'>
                     <EditsModal destination={destination} />
-                    <DeleteAlert destination={destination}/>
+                    <DeleteAlert destination={destination} />
                 </div>
             </div>
             <div className='relative w-full h-130 object-contain  rounded-2xl'>
@@ -47,8 +47,14 @@ const DestinationCardDetails = ({ destination }) => {
                 </Link>
             </div>
             <div className='space-y-5 my-5'>
-                <h1>Overview</h1>
-                <h1>HighLights</h1>
+                <div>
+                    <h1 className='text-2xl font-semibold'>Overview</h1>
+                    <p>Discover the magic of Bali with pristine beaches, ancient temples, and vibrant culture. Experience luxury resorts, tropical landscapes, and unforgettable sunsets.</p>
+                </div>
+                <div>
+                    <h1 className='text-2xl font-semibold'>HighLights</h1>
+                    <p>Discover the magic of Bali with pristine beaches, ancient temples, and vibrant culture. Experience luxury resorts, tropical landscapes, and unforgettable sunsets.</p>
+                </div>
 
             </div>
         </div>
