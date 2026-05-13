@@ -1,3 +1,4 @@
+import { BookingCancelAlert } from '@/Components/Booking/BookingCancelAlart'
 import { auth } from '@/lib/auth'
 import { Button } from '@heroui/react'
 import { headers } from 'next/headers'
@@ -12,7 +13,7 @@ const MyBookingPage = async () => {
     const user = session?.user
     const res = await fetch(`http://localhost:5000/booking/${user?.id}`)
     const booking = await res.json()
-    console.log(booking)
+    // console.log(booking)
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-3xl font-bold'>My Booking</h1>
@@ -37,11 +38,11 @@ const MyBookingPage = async () => {
                                         year: "numeric",
                                     })}
                                 </p>
-                                <p>Booking Id : {booking.userId}</p>
+                                <p>Booking Id : {booking._id}</p>
                                 <div className='flex justify-between items-center'>
                                     <p className='text-2xl font-bold text-cyan-500'>Price: ${booking.price}</p>
                                     <div className='flex items-center justify-between gap-5'>
-                                        <Button variant='outline' className={'rounded border-red-400 text-red-500'}>Cancel</Button>
+                                        <BookingCancelAlert booking={booking}/>
                                         <Button className={'rounded '}>View</Button>
                                     </div>
                                 </div>
