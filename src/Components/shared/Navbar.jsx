@@ -6,17 +6,12 @@ import { authClient } from '@/lib/auth-client';
 import { Avatar, Button } from '@heroui/react';
 
 const Navbar = () => {
-    const {
-        data: session,
-        isPending,
-        error,
-        refetch
-    } = authClient.useSession()
+    const { data: session, isPending, error, refetch } = authClient.useSession()
     // console.log(session)
     const user = session?.user;
     // console.log(user)
-    
-    const handleSingOut=async()=>{
+
+    const handleSingOut = async () => {
         await authClient.signOut()
 
     }

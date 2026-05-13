@@ -8,6 +8,7 @@ import { GiArrowWings } from 'react-icons/gi';
 import { SlCalender } from 'react-icons/sl';
 import { EditsModal } from './EditsModal';
 import { DeleteAlert } from './DeleteAlert';
+import BookingCard from '../Booking/BookingCard';
 
 const DestinationCardDetails = ({ destination }) => {
     // console.log(destination)
@@ -30,32 +31,36 @@ const DestinationCardDetails = ({ destination }) => {
                     className=' '
                 />
             </div>
-            <div>
-                <div className='flex gap-2 items-center my-2'>
-                    <FiMapPin /><p>{country}</p>
-                </div>
-                <div className='flex items-center justify-between'>
-                    <h2 className='text-xl font-semibold'>{destinationName}</h2>
-                    <p className='text-xl font-semibold'>${price}<span className='text-sm font-light'>/person</span></p>
-                </div>
-                <div className='flex gap-2 items-center my-2'>
-                    <SlCalender />
-                    <p className='text-xl font-semibold text-gray-400'>{duration}</p>
-                </div>
-                <Link href={``}>
-                    <button className={'text-2xl bg-white text-blue-400 font-semibold border-b-2 border-pink-500 flex items-center gap-2'}>BOOK NOW <GiArrowWings /> </button>
-                </Link>
-            </div>
-            <div className='space-y-5 my-5'>
+            <div className='flex justify-between'>
                 <div>
-                    <h1 className='text-2xl font-semibold'>Overview</h1>
-                    <p>Discover the magic of Bali with pristine beaches, ancient temples, and vibrant culture. Experience luxury resorts, tropical landscapes, and unforgettable sunsets.</p>
+                    <div>
+                        <div className='flex gap-2 items-center my-2'>
+                            <FiMapPin /><p>{country}</p>
+                        </div>
+                        <div className='flex items-center justify-between'>
+                            <h2 className='text-xl font-semibold'>{destinationName}</h2>
+                            {/* <p className='text-xl font-semibold'>${price}<span className='text-sm font-light'>/person</span></p> */}
+                        </div>
+                        <div className='flex gap-2 items-center my-2'>
+                            <SlCalender />
+                            <p className='text-xl font-semibold text-gray-400'>{duration}</p>
+                        </div>
+                        <Link href={``}>
+                            <button className={'text-2xl bg-white text-blue-400 font-semibold border-b-2 border-pink-500 flex items-center gap-2'}>BOOK NOW <GiArrowWings /> </button>
+                        </Link>
+                    </div>
+                    <div className='space-y-5 my-5'>
+                        <div>
+                            <h1 className='text-2xl font-semibold'>Overview</h1>
+                            <p>Discover the magic of Bali with pristine beaches, ancient temples, and vibrant culture. Experience luxury resorts, tropical landscapes, and unforgettable sunsets. </p>
+                        </div>
+                        <div>
+                            <h1 className='text-2xl font-semibold'>HighLights</h1>
+                            <p>Discover the magic of Bali with pristine beaches, ancient temples, and vibrant culture. Experience luxury resorts, tropical landscapes, and unforgettable sunsets.</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h1 className='text-2xl font-semibold'>HighLights</h1>
-                    <p>Discover the magic of Bali with pristine beaches, ancient temples, and vibrant culture. Experience luxury resorts, tropical landscapes, and unforgettable sunsets.</p>
-                </div>
-
+                <BookingCard destination={destination} />
             </div>
         </div>
     )
