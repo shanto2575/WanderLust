@@ -4,8 +4,10 @@ import Link from 'next/link'
 import NavLink from './NavLink';
 import { authClient } from '@/lib/auth-client';
 import { Avatar, Button } from '@heroui/react';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
+    const route=useRouter()
     const { data: session, isPending, error, refetch } = authClient.useSession()
     // console.log(session)
     const user = session?.user;
@@ -13,10 +15,13 @@ const Navbar = () => {
 
     const handleSingOut = async () => {
         await authClient.signOut()
+        route.push('/login')
+
     }
+    
 
     return (
-        <div className='flex justify-between items-center p-5'>
+        <div className='flex justify-between items-center p-5 shadow'>
             <ul className='flex gap-5'>
                 <li><NavLink href={'/'}>Home</NavLink></li>
                 <li><NavLink href={'/destination'}>Destinations</NavLink></li>
