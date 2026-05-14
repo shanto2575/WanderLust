@@ -4,10 +4,12 @@ import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
-import { redirect } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const SignUpPage = () => {
+    const router =useRouter()
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target)
@@ -22,8 +24,14 @@ const SignUpPage = () => {
         });
         // console.log(data,error)
         if (data) {
-            redirect('/')
+            toast.success('SignUp Successful')
+            e.target.reset()
+            router.push('/login')
         }
+        if(error){
+            toast.error(error.message)
+        }
+
     }
     const handleSignUp = async () => {
         const data = await authClient.signIn.social({

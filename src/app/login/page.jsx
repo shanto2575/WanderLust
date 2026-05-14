@@ -5,6 +5,7 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import { FcGoogle } from 'react-icons/fc';
 import { redirect } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
     const onSubmit = async (e) => {
@@ -19,6 +20,7 @@ const LoginPage = () => {
         });
         // console.log(data, error)
         if (data) {
+            toast.success('Login Successful')
             redirect('/')
         }
     }
