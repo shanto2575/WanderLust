@@ -28,14 +28,18 @@ const BookingCard = ({ destination }) => {
             departureDate: new Date(departureDate)
         }
         // console.log(bookingData)
-        const res=await fetch('http://localhost:5000/booking',{
-            method:'POST',
-            headers:{
-                'Content-type':'application/json'
+
+        const { data: tokenData } = await authClient.token()
+        
+        const res = await fetch('http://localhost:5000/booking', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
-            body:JSON.stringify(bookingData)
+            body: JSON.stringify(bookingData)
         })
-        const data=await res.json()
+        const data = await res.json()
         // console.log(data)
         toast.success('Your Booking Successfully')
     }

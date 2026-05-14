@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { FaTrash } from "react-icons/fa6";
@@ -8,10 +9,12 @@ export function DeleteAlert({destination}) {
         const {_id, imageUrl, destinationName, country, price, duration } = destination;
 
         const handleDelete=async()=>{
+            const {data:tokenData}=await authClient.token()
             const res=await fetch(`http://localhost:5000/destination/${_id}`,{
                 method:'DELETE',
                 headers:{
-                    "Content-type":'application/json'
+                    "Content-type":'application/json',
+                    authorization:`Bearer ${tokenData?.token}`
                 }
             })
             const data=await res.json()

@@ -10,8 +10,15 @@ const MyBookingPage = async () => {
         headers: await headers()
     })
     // console.log(session)
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
     const user = session?.user
-    const res = await fetch(`http://localhost:5000/booking/${user?.id}`)
+    const res = await fetch(`http://localhost:5000/booking/${user?.id}`,{
+        headers:{
+            authorization:`Bearer ${token}`
+        }
+    })
     const booking = await res.json()
     // console.log(booking)
     return (
@@ -42,7 +49,7 @@ const MyBookingPage = async () => {
                                 <div className='flex justify-between items-center'>
                                     <p className='text-2xl font-bold text-cyan-500'>Price: ${booking.price}</p>
                                     <div className='flex items-center justify-between gap-5'>
-                                        <BookingCancelAlert booking={booking}/>
+                                        <BookingCancelAlert booking={booking} />
                                         <Button className={'rounded '}>View</Button>
                                     </div>
                                 </div>
