@@ -14,12 +14,11 @@ export function EditsModal({ destination }) {
         const destination = Object.fromEntries(formData.entries())
 
         const {data:tokenData}=await authClient.token()
-
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json',
-                authorization: `Bearer ${tokenData?.token}`
+                authorization:`Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(destination)
         })

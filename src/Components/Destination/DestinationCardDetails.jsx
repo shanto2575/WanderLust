@@ -12,7 +12,7 @@ import BookingCard from '../Booking/BookingCard';
 
 const DestinationCardDetails = ({ destination }) => {
     // console.log(destination)
-    const { imageUrl, destinationName, country, price, duration } = destination;
+    const { imageUrl, destinationName, country, duration } = destination;
     return (
         <div className='w-10/12 mx-auto my-4'>
             <div className='flex justify-between items-center gap-5'>

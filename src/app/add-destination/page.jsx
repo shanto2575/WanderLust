@@ -11,7 +11,9 @@ const AddDestinationPage = () => {
         const formData = new FormData(e.target);
         const destination = Object.fromEntries(formData.entries())
 
-        const {data:tokenData}=await authClient.token();
+        const {data:tokenData}=await authClient.token()
+        console.log(tokenData)
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination`, {
             method: 'POST',
             headers: {

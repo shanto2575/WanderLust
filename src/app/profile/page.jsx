@@ -20,7 +20,7 @@ const ProfilePage = async () => {
         <div className='flex items-center justify-center my-6'>
             <div className='border rounded-2xl p-5 space-y-3 text-center'>
                 <Image
-                    src={user.image || "/avatar.png"}
+                    src={user.image}
                     alt={user.name}
                     width={200}
                     height={200}
