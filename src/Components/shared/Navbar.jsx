@@ -20,7 +20,6 @@ const Navbar = () => {
 
     }
 
-
     return (
         <div className='flex justify-between items-center p-5 shadow'>
             <ul className='flex gap-5'>
@@ -31,7 +30,7 @@ const Navbar = () => {
             </ul>
             <Link href="/" className="inline-block">
                 <Image
-                    src="/assets/logo.png"
+                    src="/assets/Logo.png"
                     width={160}
                     height={60}
                     alt="Website Logo"
