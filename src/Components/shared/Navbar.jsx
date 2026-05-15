@@ -6,8 +6,9 @@ import { authClient } from '@/lib/auth-client';
 import { Avatar, Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 
+
 const Navbar = () => {
-    const route=useRouter()
+    const route = useRouter()
     const { data: session, isPending, error, refetch } = authClient.useSession()
     // console.log(session)
     const user = session?.user;
@@ -18,7 +19,7 @@ const Navbar = () => {
         route.push('/login')
 
     }
-    
+
 
     return (
         <div className='flex justify-between items-center p-5 shadow'>
@@ -28,13 +29,13 @@ const Navbar = () => {
                 <li><NavLink href={'/my-bookings'}>My Bookings</NavLink></li>
                 <li><NavLink href={'/add-destination'}>Add Destination</NavLink></li>
             </ul>
-            <Link href={'/'}>
+            <Link href="/" className="inline-block">
                 <Image
-                    src={'/assets/logo.png'}
-                    width={400}
-                    height={400}
-                    alt='logo'
-                    className='text-sm w-40'
+                    src="/assets/logo.png"
+                    width={160}
+                    height={60}
+                    alt="Website Logo"
+                    priority
                 />
             </Link>
             <ul className='flex items-center gap-5'>
